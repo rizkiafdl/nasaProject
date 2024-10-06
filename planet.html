@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TRAPPIST-1 system</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style1.css" />
+  </head>
+  <body>
+    <div class="hamburger-menu">
+      <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+      <div class="menu">
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="planet.html">PLANETS</a></li>
+          <li><a href="teams.html">TEAM</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="music-controls">
+      <button id="mute-button" onclick="toggleMute()">🔊</button>
+      <!-- Mute/Unmute button -->
+    </div>
+
+    <audio id="background-music" loop>
+      <source src="galaxy.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+      <div id="planet-image" class="planet-image"></div>
+    </div>
+
+    <div class="planet-links">
+      <a href="#trappist-1-star" onclick="showPlanet('star')"
+        >TRAPPIST-1 star</a
+      >
+      <a href="#trappist-1b" onclick="showPlanet('1b')">TRAPPIST-1b</a>
+      <a href="#trappist-1c" onclick="showPlanet('1c')">TRAPPIST-1c</a>
+      <a href="#trappist-1d" onclick="showPlanet('1d')">TRAPPIST-1d</a>
+      <a href="#trappist-1e" onclick="showPlanet('1e')">TRAPPIST-1e</a>
+      <a href="#trappist-1f" onclick="showPlanet('1f')">TRAPPIST-1f</a>
+      <a href="#trappist-1g" onclick="showPlanet('1g')">TRAPPIST-1g</a>
+      <a href="#trappist-1h" onclick="showPlanet('1h')">TRAPPIST-1h</a>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="planet-sidebar" class="sidebar">
+      <div class="sidebar-content">
+        <button class="close-btn" onclick="closeSidebar()">X</button>
+        <h2>Planet Information</h2>
+
+        <p id="planet-info">Details about the planet will be displayed here.</p>
+
+        <!-- Collapsible Fun Fact Section -->
+        <h2>
+          <button
+            class="collapsible"
+            onclick="toggleCollapse('funfact-content')"
+          >
+            Fun fact
+          </button>
+        </h2>
+        <div id="funfact-content" class="collapsible-content">
+          <p id="planet-funfact">fun fact</p>
+        </div>
+
+        <!-- Collapsible Historical Significance Section -->
+        <h2>
+          <button
+            class="collapsible"
+            onclick="toggleCollapse('history-content')"
+          >
+            Historical Significance
+          </button>
+        </h2>
+        <div id="history-content" class="collapsible-content">
+          <p id="planet-history">history</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script1.js"></script>
+  </body>
+</html>

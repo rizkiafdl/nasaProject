@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRAPPIST-1 System</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="overlay-content">
+        <h1>Altera</h1>
+        <p>Welcome to the exploration of the TRAPPIST-1 System!</p>
+        <button id="continue-button">Continue</button>
+        <!-- Added continue button -->
+      </div>
+    </div>
+    <div class="music-controls">
+      <button id="mute-button" onclick="toggleMute()">🔊</button>
+      <!-- Mute/Unmute button -->
+    </div>
+
+    <audio id="background-music" loop>
+      <source src="galaxy.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <div class="navbar-menu">
+      <div class="hamburger-menu">
+        <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+        <div class="menu">
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="planet.html">PLANETS</a></li>
+            <li><a href="teams.html">TEAM</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="center-planet">
+        <img src="./Images-New/sun.png" alt="center-planet" />
+      </div>
+      <div id="TRAPPIST-1b-img" class="TRAPPIST-1b"></div>
+      <div id="TRAPPIST-1c-img" class="TRAPPIST-1c"></div>
+      <div id="TRAPPIST-1d-img" class="TRAPPIST-1d"></div>
+      <div id="TRAPPIST-1e-img" class="TRAPPIST-1e"></div>
+      <div id="TRAPPIST-1f-img" class="TRAPPIST-1f"></div>
+      <div id="TRAPPIST-1g-img" class="TRAPPIST-1g"></div>
+      <div id="TRAPPIST-1h-img" class="TRAPPIST-1h"></div>
+    </div>
+
+    <div class="planet-info" id="planet-info">
+      <h3 id="planet-name">Planet Name</h3>
+      <p id="planet-speed">Speed: -</p>
+      <p id="planet-size">Size: -</p>
+    </div>
+
+    <div class="planet-links">
+      <a
+        href="#"
+        onclick="selectPlanet('TRAPPIST-1 star', '', '12% of Sun is Diameter')"
+        >TRAPPIST-1 star</a
+      >
+      <a
+        href="#"
+        onclick="selectPlanet('TRAPPIST-1b', '8,846 miles (14,236 KM)', 'Orbit Every 1.5 Earth Days')"
+        >TRAPPIST-1b</a
+      >
+      <a
+        href="#"
+        onclick="selectPlanet('TRAPPIST-1c', '8,846 (14,236 KM)', 'Orbit Every 1.5 earth days')"
+        >TRAPPIST-1c</a
+      >
+      <a
+        href="#"
+        onclick="selectPlanet('TRAPPIST-1d', '8,718 miles (14,030 km)', 'Orbit Every 2.4 Earth days')"
+        >TRAPPIST-1d</a
+      >
+      <a
+        href="#"
+        onclick="selectPlanet('TRAPPIST-1e', '6,246 miles (10,050 km)', 'Orbit Every 4.05 Earth days')"
+        >TRAPPIST-1e</a
+      >
+      <a
+        href="#"
+        onclick="selectPlanet('TRAPPIST-1f', '7,292 miles (11,736 km)', 'Orbit Every 6.1 Earth days')"
+        >TRAPPIST-1f</a
+      >
+      <a
+        href="#"
+        onclick="selectPlanet('TRAPPIST-1g', '8,282 miles (13,330 km)', 'Orbit Every 9.2 Earth days')"
+        >TRAPPIST-1g</a
+      >
+      <a
+        href="#"
+        onclick="selectPlanet('TRAPPIST-1h', '8,950 miles (14,400 km)', 'Orbit Every 12.4 Earth Days')"
+        >TRAPPIST-1h</a
+      >
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

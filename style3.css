@@ -1,0 +1,184 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Space Grotesk", sans-serif;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(#000000, #0e0021);
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+}
+
+.music-controls {
+  position: fixed; /* Keep controls fixed */
+  bottom: 20px; /* Position from the bottom */
+  right: 20px; /* Position from the right */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+#mute-button {
+  background: none; /* No background */
+  border: none; /* No border */
+  font-size: 24px; /* Size of the button icon */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: small;
+  padding: 10px 20px;
+  z-index: 2;
+}
+
+.hamburger {
+  padding: 20px;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+  align-items: center;
+}
+
+/* Menu container */
+.menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 200px; /* Adjusted width */
+  background-color: rgba(52, 52, 52, 0.194);
+  display: flex;
+  flex-direction: column;
+  padding-top: 6vh; /* Spacing below the hamburger button */
+  transition: left 0.3s ease;
+  z-index: 999;
+  border-bottom-right-radius: 10px;
+  padding-left: 2vw;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menu ul li {
+  margin: 15px 0;
+  text-align: left; /* Align text to the left */
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px; /* Adjusted font size for links */
+  padding: 10px;
+  display: block;
+}
+
+/* Menu slide-in effect when active */
+.menu.active {
+  left: 0;
+}
+
+/* Remove the fixed position when the hamburger menu is activated */
+.menu.active .hamburger {
+  display: none;
+}
+
+.team {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.team-content {
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+.team-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+.center h1 {
+  color: #fff;
+  font-size: 4rem;
+  text-align: center;
+}
+.box {
+  padding: 16px;
+  background: #1b1229;
+  border-radius: 15px;
+  transition: all 0.38s ease;
+}
+.box h3 {
+  font-size: 23px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.box h5 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #b7b4bb;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+.icons i {
+  display: inline-block;
+  color: #fff;
+  font-size: 20px;
+  margin: 0 8px;
+  transition: all 0.38s ease;
+}
+.icons i:hover {
+  transform: scale(1.2);
+}
+.box:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+
+@media (max-width: 1240px) {
+  .team {
+    width: 100%;
+    height: auto;
+    padding: 90px 2%;
+  }
+  .center h1 {
+    font-size: 3.2rem;
+  }
+}

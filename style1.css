@@ -1,0 +1,255 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: small;
+  padding: 10px 20px;
+  z-index: 2;
+}
+
+.hamburger {
+  padding: 20px;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+  align-items: center;
+}
+
+/* Menu container */
+.menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 200px; /* Adjusted width */
+  background-color: rgba(52, 52, 52, 0.194);
+  display: flex;
+  flex-direction: column;
+  padding-top: 6vh; /* Spacing below the hamburger button */
+  transition: left 0.3s ease;
+  z-index: 999;
+  border-bottom-right-radius: 10px;
+  padding-left: 2vw;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menu ul li {
+  margin: 15px 0;
+  text-align: left; /* Align text to the left */
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px; /* Adjusted font size for links */
+  padding: 10px;
+  display: block;
+}
+
+/* Menu slide-in effect when active */
+.menu.active {
+  left: 0;
+}
+
+/* Remove the fixed position when the hamburger menu is activated */
+.menu.active .hamburger {
+  display: none;
+}
+
+/* Container and centered planet image */
+.container {
+  font-size: 6px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#planet-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1); /* Centered and initial scale */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 1;
+  width: 1300px;
+  height: 1300px;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  animation: orbit 50s linear infinite;
+}
+
+/* Zoom out and fade */
+#planet-image.zoom-out {
+  transform: scale(0.5); /* Shrinks smoothly */
+  opacity: 0; /* Fades out */
+}
+
+/* Zoom in and fade */
+#planet-image.zoom-in {
+  transform: scale(1); /* Returns to normal size after zoom-out */
+  opacity: 1; /* Fades in */
+}
+/* Collapsible button */
+.collapsible {
+  background-color: #004080;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  font-size: 18px;
+}
+
+/* Style for collapsible content */
+.collapsible-content {
+  display: none;
+  overflow: hidden;
+  padding: 0 18px;
+  background-color: #f1f1f1;
+  transition: max-height 0.3s ease-out;
+}
+
+.music-controls {
+  position: fixed; /* Keep controls fixed */
+  bottom: 20px; /* Position from the bottom */
+  right: 20px; /* Position from the right */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+#mute-button {
+  background: none; /* No background */
+  border: none; /* No border */
+  font-size: 24px; /* Size of the button icon */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+/* Sidebar for planet info */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  color: black;
+  transition: right 0.3s ease;
+  z-index: 3;
+  height: 100vh; /* or a specific height */
+  overflow-y: auto; /* Enables vertical scrolling */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+.sidebar-content {
+  padding: 20px;
+  font-size: 18px;
+  text-align: left;
+}
+
+.close-btn {
+  background-color: red;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  float: right;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+/* Planet links section */
+.planet-links {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  padding: 10px 100px;
+}
+
+.planet-links a {
+  color: white;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.planet-links a:hover {
+  text-decoration: underline;
+}
+
+@keyframes orbit {
+  0% {
+    transform: translate(-45%, -25%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-45%, -25%) rotate(360deg);
+  }
+}
+
+/* Zoom out animation */
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.5); /* Adjust scale for zoom out */
+  }
+}
+
+/* Zoom in animation */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5); /* Start smaller */
+  }
+  100% {
+    transform: scale(1); /* Back to original size */
+  }
+}
+
+/* Apply the animations to the planet image */
+.planet-image-zoom-out {
+  animation: zoomOut 1s ease forwards;
+}
+
+.planet-image-zoom-in {
+  animation: zoomIn 1s ease forwards;
+}

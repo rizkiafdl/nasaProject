@@ -1,0 +1,401 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center; /* Vertically centers */
+  justify-content: center; /* Horizontally centers */
+  background-color: black;
+  font-family: "Poppins", sans-serif;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* Overlay styles */
+.overlay {
+  position: fixed; /* Fixes the overlay to the viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Ensure it stays above all content */
+  opacity: 1;
+  transition: opacity 1s ease-in-out; /* Transition for fading out */
+}
+
+.overlay-content {
+  color: white; /* Text color */
+  text-align: center; /* Center text */
+  font-family: "Poppins", sans-serif; /* Use your chosen font */
+}
+
+#continue-button {
+  margin-top: 20px; /* Spacing above the button */
+  padding: 10px 20px; /* Padding for the button */
+  font-size: 16px; /* Button text size */
+  background-color: #f39c12; /* Button color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  color: white; /* Text color */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Button hover effect */
+}
+
+.music-controls {
+  position: fixed; /* Keep controls fixed */
+  bottom: 20px; /* Position from the bottom */
+  right: 20px; /* Position from the right */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+#mute-button {
+  background: none; /* No background */
+  border: none; /* No border */
+  font-size: 24px; /* Size of the button icon */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+#continue-button:hover {
+  background-color: #e67e22; /* Darker color on hover */
+}
+
+body.loaded .overlay {
+  opacity: 0; /* Fade out the overlay */
+  pointer-events: none; /* Disable pointer events */
+}
+
+body.lifted .overlay-content {
+  transform: translateY(-100%); /* Lift the content upward */
+  transition: transform 0.5s ease; /* Transition for lifting effect */
+}
+
+/* Adjusting the container to be centered */
+.container {
+  font-size: 6px;
+  width: 40em;
+  height: 40em;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+img {
+  height: 130%;
+  width: 130%;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+}
+.center-planet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 16em;
+  left: 16em;
+  width: 9em;
+  height: 9em;
+  border-radius: 50%;
+  box-shadow: 0 0 3em rgb(255, 128, 0);
+  animation: orbit 50s linear infinite;
+}
+.TRAPPIST-1b,
+.TRAPPIST-1c,
+.TRAPPIST-1d,
+.TRAPPIST-1e,
+.TRAPPIST-1f,
+.TRAPPIST-1g,
+.TRAPPIST-1h {
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+  border-width: 0.1em 0.1em 0 0;
+  border-radius: 90%;
+  /* background-color: rgba(31, 83, 33, 0.28); */
+  position: absolute;
+  border-style: solid;
+  animation: orbit 15s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+.TRAPPIST-1b {
+  top: 11.5em;
+  left: 11.5em;
+  width: 17em;
+  height: 17em;
+
+  animation: orbit 15s linear infinite;
+}
+
+.TRAPPIST-1c {
+  top: 7.5em;
+  left: 7.5em;
+  width: 25em;
+  height: 25em;
+  animation: orbit 20.4s linear infinite;
+}
+
+.TRAPPIST-1d {
+  top: 5em;
+  left: 5em;
+  width: 30em;
+  height: 30em;
+  animation: orbit 40.5s linear infinite;
+}
+
+.TRAPPIST-1e {
+  top: 2em;
+  left: 2.5em;
+  width: 36em;
+  height: 36em;
+  animation: orbit 60.1s linear infinite;
+}
+.TRAPPIST-1f {
+  top: -2em;
+  left: -2em;
+  width: 45em;
+  height: 45em;
+  animation: orbit 92s linear infinite;
+}
+.TRAPPIST-1g {
+  top: -7em;
+  left: -7em;
+  width: 55em;
+  height: 55em;
+  animation: orbit 124s linear infinite;
+}
+.TRAPPIST-1h {
+  top: -12em;
+  left: -12em;
+  width: 65em;
+  height: 65em;
+  animation: orbit 189s linear infinite;
+}
+
+.TRAPPIST-1b::before,
+.TRAPPIST-1c::before,
+.TRAPPIST-1d::before,
+.TRAPPIST-1e::before,
+.TRAPPIST-1f::before,
+.TRAPPIST-1g::before,
+.TRAPPIST-1h::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background-size: cover;
+  animation: orbit 30s linear infinite;
+  background-position: center;
+}
+.TRAPPIST-1b::before {
+  top: 1.5em;
+  right: -1.5em;
+  width: 4.8em;
+  height: 4.8em;
+  background-image: url("./Images-New/TRAPPIST-1b.png");
+  background-size: cover;
+}
+.TRAPPIST-1c::before {
+  top: 1.3em;
+  right: 1em;
+  width: 4.9em;
+  height: 4.9em;
+  background-image: url("./Images-New/TRAPPIST-1c.png");
+  background-size: cover;
+}
+.TRAPPIST-1d::before {
+  top: 3em;
+  right: 2.5em;
+  width: 3em;
+  height: 3em;
+  background-image: url("./Images-New/TRAPPIST-1d.png");
+  background-size: cover;
+}
+.TRAPPIST-1e::before {
+  top: 3.8em;
+  right: 3.5em;
+  width: 3.5em;
+  height: 3.5em;
+  background-image: url("./Images-New/TRAPPIST-1e.png");
+  background-size: cover;
+}
+.TRAPPIST-1f::before {
+  top: 5em;
+  right: 3.2em;
+  width: 4.7em;
+  height: 4.7em;
+  background-image: url("./Images-New/TRAPPIST-1f.png");
+  background-size: cover;
+}
+.TRAPPIST-1g::before {
+  top: 7em;
+  right: 5em;
+  width: 5em;
+  height: 5em;
+  background-image: url("./Images-New/TRAPPIST-1g.png");
+  background-size: cover;
+}
+.TRAPPIST-1h::before {
+  top: 8.4em;
+  right: 8em;
+  width: 3em;
+  height: 3em;
+  background-image: url("./Images-New/TRAPPIST-1h.png");
+  background-size: cover;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: small;
+  padding: 10px 20px;
+  z-index: 2;
+}
+
+.hamburger {
+  padding: 20px;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+  align-items: center;
+}
+
+/* Menu container */
+.menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 200px; /* Adjusted width */
+  background-color: rgba(52, 52, 52, 0.194);
+  display: flex;
+  flex-direction: column;
+  padding-top: 6vh; /* Spacing below the hamburger button */
+  transition: left 0.3s ease;
+  z-index: 999;
+  border-bottom-right-radius: 10px;
+  padding-left: 2vw;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menu ul li {
+  margin: 15px 0;
+  text-align: left; /* Align text to the left */
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px; /* Adjusted font size for links */
+  padding: 10px;
+  display: block;
+}
+
+/* Menu slide-in effect when active */
+.menu.active {
+  left: 0;
+}
+
+/* Remove the fixed position when the hamburger menu is activated */
+.menu.active .hamburger {
+  display: none;
+}
+
+.planet-links {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  margin-bottom: 20px;
+  padding: 0px 80px 0px 80px;
+}
+
+.planet-links a {
+  color: rgb(151, 151, 151);
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.planet-links a:hover {
+  color: white;
+}
+
+.planet-links a.active {
+  color: rgb(
+    255,
+    255,
+    255
+  ); /* Mengubah warna teks menjadi merah saat link aktif */
+}
+
+.planet-info {
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 5;
+}
+
+.highlight {
+  transform: scale(1.2); /* Scale up the image */
+  border: 2px solid yellow; /* Add a border */
+}
+
+.planet-info h2 {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: black;
+}
+
+.planet-info p {
+  font-family: "Poppins", sans-serif;
+  color: black;
+}
+
+h1,
+p {
+  color: #fff;
+}
